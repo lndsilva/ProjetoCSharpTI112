@@ -1,0 +1,15 @@
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\bin\Debug\MultJogos.exe.config
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\bin\Debug\MultJogos.exe
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\bin\Debug\MultJogos.pdb
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.csproj.AssemblyReference.cache
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.Properties.Resources.resources
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.csproj.GenerateResource.cache
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.csproj.CoreCompileInputs.cache
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.exe
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.pdb
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmLogin.resources
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmSplash.resources
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmComponentes.resources
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmMenuPrincipal.resources
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmFuncionarios.resources
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmPesquisar.resources
