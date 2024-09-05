@@ -31,11 +31,18 @@ namespace MultJogos
             usuario = txtUsuario.Text;
             senha = txtSenha.Text;
 
+            //validando a entrada do usuário
             if (usuario.Equals("senac") && senha.Equals("senac"))
             {
+                //entrar no sistema
                 frmMenuPrincipal abrir = new frmMenuPrincipal();
                 abrir.Show();
-                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválidos.",
+                    "Sistema", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
 
 
@@ -43,9 +50,7 @@ namespace MultJogos
 
 
 
-            //MessageBox.Show("Bem vindo ao sistema.",
-            //    "Sistema", MessageBoxButtons.OK,
-            //    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
         }
     }
 }
