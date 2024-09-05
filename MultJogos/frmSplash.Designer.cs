@@ -59,9 +59,9 @@ namespace MultJogos
             // 
             // pgbSplash
             // 
-            this.pgbSplash.Location = new System.Drawing.Point(222, 410);
+            this.pgbSplash.Location = new System.Drawing.Point(263, 410);
             this.pgbSplash.Name = "pgbSplash";
-            this.pgbSplash.Size = new System.Drawing.Size(329, 25);
+            this.pgbSplash.Size = new System.Drawing.Size(255, 25);
             this.pgbSplash.TabIndex = 5;
             // 
             // pcbLogo
