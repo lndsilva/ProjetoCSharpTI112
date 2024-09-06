@@ -57,8 +57,10 @@ namespace MultJogos
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtNum = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlCRUD.SuspendLayout();
             this.gpbFuncionarios.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +87,7 @@ namespace MultJogos
             this.btnVoltar.Location = new System.Drawing.Point(672, 13);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(105, 45);
-            this.btnVoltar.TabIndex = 17;
+            this.btnVoltar.TabIndex = 18;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -99,7 +101,7 @@ namespace MultJogos
             this.btnLimpar.Location = new System.Drawing.Point(561, 13);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(105, 45);
-            this.btnLimpar.TabIndex = 16;
+            this.btnLimpar.TabIndex = 17;
             this.btnLimpar.Text = "Li&mpar";
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -112,7 +114,7 @@ namespace MultJogos
             this.btnPesquisar.Location = new System.Drawing.Point(450, 13);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(105, 45);
-            this.btnPesquisar.TabIndex = 15;
+            this.btnPesquisar.TabIndex = 16;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -126,7 +128,7 @@ namespace MultJogos
             this.btnExcluir.Location = new System.Drawing.Point(339, 13);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(105, 45);
-            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.TabIndex = 15;
             this.btnExcluir.Text = "E&xcluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -139,7 +141,7 @@ namespace MultJogos
             this.btnAlterar.Location = new System.Drawing.Point(228, 13);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(105, 45);
-            this.btnAlterar.TabIndex = 13;
+            this.btnAlterar.TabIndex = 14;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -152,7 +154,7 @@ namespace MultJogos
             this.btnCadastrar.Location = new System.Drawing.Point(117, 13);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(105, 45);
-            this.btnCadastrar.TabIndex = 12;
+            this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -166,7 +168,7 @@ namespace MultJogos
             this.btnNovo.Location = new System.Drawing.Point(6, 13);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(105, 45);
-            this.btnNovo.TabIndex = 11;
+            this.btnNovo.TabIndex = 12;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -175,6 +177,8 @@ namespace MultJogos
             // 
             // gpbFuncionarios
             // 
+            this.gpbFuncionarios.Controls.Add(this.txtNum);
+            this.gpbFuncionarios.Controls.Add(this.label1);
             this.gpbFuncionarios.Controls.Add(this.txtCidade);
             this.gpbFuncionarios.Controls.Add(this.lblCidade);
             this.gpbFuncionarios.Controls.Add(this.cbbEstado);
@@ -208,8 +212,8 @@ namespace MultJogos
             this.txtCidade.Location = new System.Drawing.Point(34, 394);
             this.txtCidade.MaxLength = 100;
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(288, 26);
-            this.txtCidade.TabIndex = 9;
+            this.txtCidade.Size = new System.Drawing.Size(359, 26);
+            this.txtCidade.TabIndex = 10;
             // 
             // lblCidade
             // 
@@ -223,15 +227,15 @@ namespace MultJogos
             // cbbEstado
             // 
             this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(412, 395);
+            this.cbbEstado.Location = new System.Drawing.Point(402, 392);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(153, 28);
-            this.cbbEstado.TabIndex = 10;
+            this.cbbEstado.TabIndex = 11;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(412, 365);
+            this.lblEstado.Location = new System.Drawing.Point(402, 362);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(60, 20);
             this.lblEstado.TabIndex = 16;
@@ -240,10 +244,11 @@ namespace MultJogos
             // mskCEP
             // 
             this.mskCEP.Location = new System.Drawing.Point(412, 221);
-            this.mskCEP.Mask = "00000000";
+            this.mskCEP.Mask = "00000-000";
             this.mskCEP.Name = "mskCEP";
             this.mskCEP.Size = new System.Drawing.Size(85, 26);
             this.mskCEP.TabIndex = 6;
+            this.mskCEP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCEP_KeyDown);
             // 
             // lblCEP
             // 
@@ -256,16 +261,16 @@ namespace MultJogos
             // 
             // txtBairro
             // 
-            this.txtBairro.Location = new System.Drawing.Point(412, 305);
+            this.txtBairro.Location = new System.Drawing.Point(519, 305);
             this.txtBairro.MaxLength = 100;
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(330, 26);
-            this.txtBairro.TabIndex = 8;
+            this.txtBairro.Size = new System.Drawing.Size(223, 26);
+            this.txtBairro.TabIndex = 9;
             // 
             // lblBairro
             // 
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(412, 276);
+            this.lblBairro.Location = new System.Drawing.Point(515, 276);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(51, 20);
             this.lblBairro.TabIndex = 12;
@@ -290,7 +295,7 @@ namespace MultJogos
             // 
             // mskTelefone
             // 
-            this.mskTelefone.Location = new System.Drawing.Point(191, 221);
+            this.mskTelefone.Location = new System.Drawing.Point(195, 221);
             this.mskTelefone.Mask = "00000-0000";
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(99, 26);
@@ -356,14 +361,6 @@ namespace MultJogos
             this.lblNome.TabIndex = 2;
             this.lblNome.Text = "Nome";
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(34, 73);
-            this.txtCodigo.MaxLength = 10;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
-            this.txtCodigo.TabIndex = 1;
-            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -372,6 +369,31 @@ namespace MultJogos
             this.lblCodigo.Size = new System.Drawing.Size(59, 20);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(34, 73);
+            this.txtCodigo.MaxLength = 10;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
+            this.txtCodigo.TabIndex = 1;
+            // 
+            // txtNum
+            // 
+            this.txtNum.Location = new System.Drawing.Point(402, 305);
+            this.txtNum.MaxLength = 5;
+            this.txtNum.Name = "txtNum";
+            this.txtNum.Size = new System.Drawing.Size(107, 26);
+            this.txtNum.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(402, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Número";
             // 
             // frmFuncionarios
             // 
@@ -413,8 +435,6 @@ namespace MultJogos
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.MaskedTextBox mskCEP;
         private System.Windows.Forms.Label lblCEP;
         private System.Windows.Forms.TextBox txtBairro;
@@ -425,5 +445,9 @@ namespace MultJogos
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label lblCidade;
+        private System.Windows.Forms.TextBox txtNum;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label lblCodigo;
     }
 }

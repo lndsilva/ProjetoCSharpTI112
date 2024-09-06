@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MosaicoSolutions.ViaCep;
 
 namespace MultJogos
 {
@@ -58,6 +59,7 @@ namespace MultJogos
             txtEmail.Enabled = false;
             txtBairro.Enabled = false;
             txtCidade.Enabled = false;
+            txtNum.Enabled = false;
             mskCEP.Enabled = false;
             mskCPF.Enabled = false;
             mskTelefone.Enabled = false;
@@ -75,6 +77,7 @@ namespace MultJogos
             txtEmail.Enabled = true;
             txtBairro.Enabled = true;
             txtCidade.Enabled = true;
+            txtNum.Enabled = true;
             mskCEP.Enabled = true;
             mskCPF.Enabled = true;
             mskTelefone.Enabled = true;
@@ -94,6 +97,7 @@ namespace MultJogos
             txtEmail.Clear();
             txtBairro.Clear();
             txtCidade.Clear();
+            txtNum.Clear();
             mskCEP.Clear();
             mskCPF.Clear();
             mskTelefone.Clear();
@@ -116,19 +120,50 @@ namespace MultJogos
             if (txtNome.Text.Equals("") || txtEmail.Text.Equals("")
                 || txtEndereco.Text.Equals("") || txtBairro.Text.Equals("")
                 || txtCidade.Text.Equals("") || cbbEstado.Text.Equals("")
-                || mskCPF.Text.Equals("   .   .   -") 
-                || mskTelefone.Text.Equals("     -") || mskCEP.Text.Equals("     "))
+                || mskCPF.Text.Equals("   .   .   -")
+                || mskTelefone.Text.Equals("     -") || mskCEP.Text.Equals("     -")||txtNum.Text.Equals(""))
             {
                 MessageBox.Show("Não deixar campos vazios.");
-                
+
             }
             else
             {
                 MessageBox.Show("Cadastrado com sucesso!!!");
                 desabilitarCampos();
                 limparCampos();
-               
+
             }
         }
+
+        public void buscaCEP(string cep)
+        {
+            var viaCEPService = ViaCepService.Default();
+
+            try
+            {
+                var endereco = viaCEPService.ObterEndereco(cep);
+
+                txtEndereco.Text = endereco.Logradouro;
+                txtBairro.Text = endereco.Bairro;
+                txtCidade.Text = endereco.Localidade;
+                cbbEstado.Text = endereco.UF;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("CEP não encontrado!!!");
+                mskCEP.Focus();
+            }
+        }
+
+        private void mskCEP_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscaCEP(mskCEP.Text);
+                txtNum.Focus();
+            }
+        }
+
     }
 }
+
