@@ -39,6 +39,8 @@ namespace MultJogos
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.gpbFuncionarios = new System.Windows.Forms.GroupBox();
+            this.txtNum = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.lblCidade = new System.Windows.Forms.Label();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
@@ -57,10 +59,8 @@ namespace MultJogos
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtNum = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.pnlCRUD.SuspendLayout();
             this.gpbFuncionarios.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,7 @@ namespace MultJogos
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
@@ -206,6 +207,23 @@ namespace MultJogos
             this.gpbFuncionarios.TabIndex = 0;
             this.gpbFuncionarios.TabStop = false;
             this.gpbFuncionarios.Text = "Dados pessoais";
+            // 
+            // txtNum
+            // 
+            this.txtNum.Location = new System.Drawing.Point(402, 305);
+            this.txtNum.MaxLength = 5;
+            this.txtNum.Name = "txtNum";
+            this.txtNum.Size = new System.Drawing.Size(107, 26);
+            this.txtNum.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(402, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Número";
             // 
             // txtCidade
             // 
@@ -361,15 +379,6 @@ namespace MultJogos
             this.lblNome.TabIndex = 2;
             this.lblNome.Text = "Nome";
             // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(34, 46);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(59, 20);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Código";
-            // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(34, 73);
@@ -378,22 +387,14 @@ namespace MultJogos
             this.txtCodigo.Size = new System.Drawing.Size(100, 26);
             this.txtCodigo.TabIndex = 1;
             // 
-            // txtNum
+            // lblCodigo
             // 
-            this.txtNum.Location = new System.Drawing.Point(402, 305);
-            this.txtNum.MaxLength = 5;
-            this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(107, 26);
-            this.txtNum.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(402, 276);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Número";
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(34, 46);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(59, 20);
+            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.Text = "Código";
             // 
             // frmFuncionarios
             // 

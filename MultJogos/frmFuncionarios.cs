@@ -30,6 +30,14 @@ namespace MultJogos
             desabilitarCampos();
 
         }
+        public frmFuncionarios(string nome)
+        {
+            InitializeComponent();
+            //executando o método desabilitar campos
+            desabilitarCampos();
+            txtNome.Text = nome;
+        }
+
 
         private void frmFuncionarios_Load(object sender, EventArgs e)
         {
@@ -49,6 +57,7 @@ namespace MultJogos
         {
             frmPesquisar abrir = new frmPesquisar();
             abrir.Show();
+            this.Hide();
         }
         //método para desabilitar os campos e botões
         public void desabilitarCampos()
@@ -121,7 +130,7 @@ namespace MultJogos
                 || txtEndereco.Text.Equals("") || txtBairro.Text.Equals("")
                 || txtCidade.Text.Equals("") || cbbEstado.Text.Equals("")
                 || mskCPF.Text.Equals("   .   .   -")
-                || mskTelefone.Text.Equals("     -") || mskCEP.Text.Equals("     -")||txtNum.Text.Equals(""))
+                || mskTelefone.Text.Equals("     -") || mskCEP.Text.Equals("     -") || txtNum.Text.Equals(""))
             {
                 MessageBox.Show("Não deixar campos vazios.");
 
@@ -164,6 +173,11 @@ namespace MultJogos
             }
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            //limpando os campos preenchidos
+            limparCampos();
+        }
     }
 }
 

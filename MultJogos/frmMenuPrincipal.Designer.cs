@@ -129,9 +129,9 @@ namespace MultJogos
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.Location = new System.Drawing.Point(554, 498);
+            this.btnVoltar.Location = new System.Drawing.Point(624, 498);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(180, 53);
+            this.btnVoltar.Size = new System.Drawing.Size(110, 53);
             this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "V&oltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

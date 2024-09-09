@@ -18,3 +18,4 @@ C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\bin\
 C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\bin\Debug\Newtonsoft.Json.xml
 C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.csproj.CopyComplete
+C:\Users\laercio.nsilva\Documents\Visual Studio 2019\EmpresaTI112\MultJogos\obj\Debug\MultJogos.frmSobreNos.resources
