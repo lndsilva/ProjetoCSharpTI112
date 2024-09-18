@@ -33,5 +33,25 @@ namespace MultJogos
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
+
+        private void tmpSplash_Tick(object sender, EventArgs e)
+        {
+
+            if (pgbSplash.Value < 100)
+            {
+                pgbSplash.Value = pgbSplash.Value + 2;
+                lblPorcentagem.Text = pgbSplash.Value.ToString() + "%";
+                
+            }
+            else
+            {
+                frmLogin abrir = new frmLogin();
+                abrir.Show();
+                this.Hide();
+
+                tmpSplash.Enabled = false;
+            }
+
+        }
     }
 }

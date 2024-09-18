@@ -29,29 +29,31 @@ namespace MultJogos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplash));
-            this.lblSimboloPorcentagem = new System.Windows.Forms.Label();
+            this.lblSimbolo = new System.Windows.Forms.Label();
             this.lblPorcentagem = new System.Windows.Forms.Label();
             this.pgbSplash = new System.Windows.Forms.ProgressBar();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
+            this.tmpSplash = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblSimboloPorcentagem
+            // lblSimbolo
             // 
-            this.lblSimboloPorcentagem.AutoSize = true;
-            this.lblSimboloPorcentagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSimboloPorcentagem.Location = new System.Drawing.Point(377, 380);
-            this.lblSimboloPorcentagem.Name = "lblSimboloPorcentagem";
-            this.lblSimboloPorcentagem.Size = new System.Drawing.Size(23, 20);
-            this.lblSimboloPorcentagem.TabIndex = 7;
-            this.lblSimboloPorcentagem.Text = "%";
+            this.lblSimbolo.AutoSize = true;
+            this.lblSimbolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSimbolo.Location = new System.Drawing.Point(387, 380);
+            this.lblSimbolo.Name = "lblSimbolo";
+            this.lblSimbolo.Size = new System.Drawing.Size(23, 20);
+            this.lblSimbolo.TabIndex = 7;
+            this.lblSimbolo.Text = "%";
             // 
             // lblPorcentagem
             // 
             this.lblPorcentagem.AutoSize = true;
             this.lblPorcentagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentagem.Location = new System.Drawing.Point(358, 380);
+            this.lblPorcentagem.Location = new System.Drawing.Point(365, 380);
             this.lblPorcentagem.Name = "lblPorcentagem";
             this.lblPorcentagem.Size = new System.Drawing.Size(18, 20);
             this.lblPorcentagem.TabIndex = 6;
@@ -59,9 +61,9 @@ namespace MultJogos
             // 
             // pgbSplash
             // 
-            this.pgbSplash.Location = new System.Drawing.Point(263, 410);
+            this.pgbSplash.Location = new System.Drawing.Point(289, 403);
             this.pgbSplash.Name = "pgbSplash";
-            this.pgbSplash.Size = new System.Drawing.Size(255, 25);
+            this.pgbSplash.Size = new System.Drawing.Size(188, 22);
             this.pgbSplash.TabIndex = 5;
             // 
             // pcbLogo
@@ -74,12 +76,17 @@ namespace MultJogos
             this.pcbLogo.TabIndex = 4;
             this.pcbLogo.TabStop = false;
             // 
+            // tmpSplash
+            // 
+            this.tmpSplash.Enabled = true;
+            this.tmpSplash.Tick += new System.EventHandler(this.tmpSplash_Tick);
+            // 
             // frmSplash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.lblSimboloPorcentagem);
+            this.Controls.Add(this.lblSimbolo);
             this.Controls.Add(this.lblPorcentagem);
             this.Controls.Add(this.pgbSplash);
             this.Controls.Add(this.pcbLogo);
@@ -98,9 +105,10 @@ namespace MultJogos
 
         #endregion
 
-        private System.Windows.Forms.Label lblSimboloPorcentagem;
+        private System.Windows.Forms.Label lblSimbolo;
         private System.Windows.Forms.Label lblPorcentagem;
         private System.Windows.Forms.ProgressBar pgbSplash;
         private System.Windows.Forms.PictureBox pcbLogo;
+        private System.Windows.Forms.Timer tmpSplash;
     }
 }
