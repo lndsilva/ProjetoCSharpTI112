@@ -16,7 +16,7 @@ namespace MultJogos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSobreNos());
+            Application.Run(new frmSplash());
         }
     }
 }
