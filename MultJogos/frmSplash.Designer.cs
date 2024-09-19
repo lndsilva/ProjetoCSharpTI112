@@ -79,6 +79,7 @@ namespace MultJogos
             // tmpSplash
             // 
             this.tmpSplash.Enabled = true;
+            this.tmpSplash.Interval = 10;
             this.tmpSplash.Tick += new System.EventHandler(this.tmpSplash_Tick);
             // 
             // frmSplash

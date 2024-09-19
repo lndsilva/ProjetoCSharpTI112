@@ -32,7 +32,32 @@ namespace MultJogos
         {
             //this.Close();
             Application.Exit();
-            
+
+        }
+
+        //criar o método para acessar através do bd
+        public bool acessarLogin(string nome, string senha)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbUsuarios where nome = @nome and senha = @senha;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 30).Value = nome;
+            comm.Parameters.Add("@senha", MySqlDbType.VarChar, 20).Value = senha;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            bool result = false;
+
+            result = DR.HasRows;
+
+            return result;
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -44,8 +69,10 @@ namespace MultJogos
             usuario = txtUsuario.Text;
             senha = txtSenha.Text;
 
+
+
             //validando a entrada do usuário
-            if (usuario.Equals("senac") && senha.Equals("senac"))
+            if (acessarLogin(usuario,senha))
             {
                 //entrar no sistema
                 frmMenuPrincipal abrir = new frmMenuPrincipal();
@@ -79,7 +106,7 @@ namespace MultJogos
 
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-           if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtSenha.Focus();
             }
@@ -93,20 +120,6 @@ namespace MultJogos
             }
         }
 
-        private void btnConectar_Click(object sender, EventArgs e)
-        {
-            String conexao = "server=10.23.49.35;port=3306;database=dbti112;uid=ti112;pwd=123456";
 
-            MySqlConnection conn = new MySqlConnection(conexao);
-
-            conn.Open();
-
-            MessageBox.Show("Banco de dados conectado");
-
-            conn.Close();
-
-
-
-        }
     }
 }
