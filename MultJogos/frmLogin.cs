@@ -36,8 +36,9 @@ namespace MultJogos
         }
 
         //criar o método para acessar através do bd
-        public bool acessarLogin(string nome, string senha)
+        public bool acessarLogin(string nome,string senha)
         {
+
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "select * from tbUsuarios where nome = @nome and senha = @senha;";
             comm.CommandType = CommandType.Text;
@@ -53,11 +54,11 @@ namespace MultJogos
 
             DR = comm.ExecuteReader();
 
-            bool result = false;
+            bool resultado = DR.HasRows;
 
-            result = DR.HasRows;
+            Conexao.fecharConexao();
 
-            return result;
+            return resultado;
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -68,8 +69,7 @@ namespace MultJogos
             //inicilizar as variáveis
             usuario = txtUsuario.Text;
             senha = txtSenha.Text;
-
-
+                       
 
             //validando a entrada do usuário
             if (acessarLogin(usuario,senha))

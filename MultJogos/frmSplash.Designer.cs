@@ -64,6 +64,7 @@ namespace MultJogos
             this.pgbSplash.Location = new System.Drawing.Point(289, 403);
             this.pgbSplash.Name = "pgbSplash";
             this.pgbSplash.Size = new System.Drawing.Size(188, 22);
+            this.pgbSplash.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.pgbSplash.TabIndex = 5;
             // 
             // pcbLogo
@@ -79,7 +80,6 @@ namespace MultJogos
             // tmpSplash
             // 
             this.tmpSplash.Enabled = true;
-            this.tmpSplash.Interval = 10;
             this.tmpSplash.Tick += new System.EventHandler(this.tmpSplash_Tick);
             // 
             // frmSplash
