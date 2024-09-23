@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace MultJogos
 {
@@ -22,18 +23,51 @@ namespace MultJogos
             txtDescricao.Enabled = false;
         }
 
+        //pesquisar por código
+        public void pesquisarPorCodigo(int codigo)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios where codFunc = @codfunc;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codFunc", MySqlDbType.Int64).Value = codigo;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            ltbPesquisar.Items.Clear();
+
+            while (DR.Read())
+            {
+
+                ltbPesquisar.Items.Add(DR.GetValue(1));
+
+            }
+
+            Conexao.fecharConexao();
+        }
+
+        //pesquisar por nome
+        public void pesquisarPorNome(string nome)
+        {
+
+
+        }
+
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (rdbCodigo.Checked || rdbNome.Checked)
             {
                 ltbPesquisar.Items.Clear();
                 ltbPesquisar.Items.Add(txtDescricao.Text);
-                
-                
             }
             else
             {
-                
+
             }
         }
 
@@ -62,6 +96,10 @@ namespace MultJogos
             {
                 MessageBox.Show("Digitar");
             }
+            else
+            {
+                pesquisarPorCodigo(Convert.ToInt32(txtDescricao.Text));
+            }
         }
 
         private void rdbNome_CheckedChanged(object sender, EventArgs e)
@@ -78,7 +116,7 @@ namespace MultJogos
             frmFuncionarios abrir = new frmFuncionarios(nome);
             abrir.Show();
             this.Hide();
-            
+
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MosaicoSolutions.ViaCep;
+using MySql.Data.MySqlClient;
 
 namespace MultJogos
 {
@@ -124,6 +125,36 @@ namespace MultJogos
             btnNovo.Enabled = false;
         }
 
+        //criando o método cadastrar funcionarios
+        public int cadastrarFuncionarios()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbFuncionarios(nome,email,cpf,telCel,cep,endereco,numero,bairro,cidade,estado)values(@nome,@email,@cpf,@telCel,@cep,@endereco,@numero,@bairro,@cidade,@estado);";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = txtNome.Text;
+            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = txtEmail.Text;
+            comm.Parameters.Add("@cpf", MySqlDbType.VarChar, 14).Value = mskCPF.Text;
+            comm.Parameters.Add("@telCel", MySqlDbType.VarChar, 10).Value = mskTelefone.Text;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = mskCEP.Text;
+            comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = txtEndereco.Text;
+            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = txtNum.Text;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = txtBairro.Text;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = txtCidade.Text;
+            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = cbbEstado.Text;
+
+            comm.Connection = Conexao.obterConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            return res;
+
+            Conexao.fecharConexao();
+
+        }
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (txtNome.Text.Equals("") || txtEmail.Text.Equals("")
@@ -137,9 +168,20 @@ namespace MultJogos
             }
             else
             {
-                MessageBox.Show("Cadastrado com sucesso!!!");
-                desabilitarCampos();
-                limparCampos();
+                if (cadastrarFuncionarios() == 1)
+                {
+                    MessageBox.Show("Cadastrado com sucesso!!!");
+                    desabilitarCampos();
+                    limparCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar!!!");
+                    desabilitarCampos();
+                    limparCampos();
+                }
+                   
+               
 
             }
         }
