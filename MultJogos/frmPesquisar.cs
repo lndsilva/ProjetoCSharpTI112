@@ -27,11 +27,35 @@ namespace MultJogos
         public void pesquisarPorCodigo(int codigo)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios where codFunc = @codfunc;";
+            comm.CommandText = "select * from tbfuncionarios where codfunc = @codFunc;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
-            comm.Parameters.Add("@codFunc", MySqlDbType.Int64).Value = codigo;
+            comm.Parameters.Add("@codFunc", MySqlDbType.Int32).Value = codigo;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+
+            ltbPesquisar.Items.Add(DR.GetString(1));
+
+            Conexao.fecharConexao();
+        }
+
+        //pesquisar por nome
+        public void pesquisarPorNome(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios where nome like '%"+nome+"%';";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome",MySqlDbType.VarChar,50).Value = nome;
 
             comm.Connection = Conexao.obterConexao();
 
@@ -43,32 +67,27 @@ namespace MultJogos
 
             while (DR.Read())
             {
-
-                ltbPesquisar.Items.Add(DR.GetValue(1));
-
-            }
+                ltbPesquisar.Items.Add(DR.GetString(1));
+            }      
 
             Conexao.fecharConexao();
-        }
-
-        //pesquisar por nome
-        public void pesquisarPorNome(string nome)
-        {
 
 
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (rdbCodigo.Checked || rdbNome.Checked)
-            {
-                ltbPesquisar.Items.Clear();
-                ltbPesquisar.Items.Add(txtDescricao.Text);
-            }
-            else
-            {
+            //if (rdbCodigo.Checked || rdbNome.Checked)
+            //{
+            //    ltbPesquisar.Items.Clear();
+            //    ltbPesquisar.Items.Add(txtDescricao.Text);
+            //}
+            //else
+            //{
 
-            }
+            //}
+            //pesquisarPorCodigo(Convert.ToInt32(txtDescricao.Text));
+            pesquisarPorNome(txtDescricao.Text);
         }
 
         //criando o método limpar
