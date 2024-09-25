@@ -50,12 +50,12 @@ namespace MultJogos
         public void pesquisarPorNome(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios where nome like '%"+nome+"%';";
+            comm.CommandText = "select * from tbFuncionarios where nome like '%" + nome + "%';";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
 
-            comm.Parameters.Add("@nome",MySqlDbType.VarChar,50).Value = nome;
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = nome;
 
             comm.Connection = Conexao.obterConexao();
 
@@ -68,7 +68,7 @@ namespace MultJogos
             while (DR.Read())
             {
                 ltbPesquisar.Items.Add(DR.GetString(1));
-            }      
+            }
 
             Conexao.fecharConexao();
 
@@ -86,8 +86,23 @@ namespace MultJogos
             //{
 
             //}
-            //pesquisarPorCodigo(Convert.ToInt32(txtDescricao.Text));
-            pesquisarPorNome(txtDescricao.Text);
+            if (rdbCodigo.Checked)
+            {
+                if (txtDescricao.Text != "")
+                {
+                    pesquisarPorCodigo(Convert.ToInt32(txtDescricao.Text));
+                }
+                
+            }
+            if (rdbNome.Checked)
+            {
+                if (txtDescricao.Text != "")
+                {
+                    pesquisarPorNome(txtDescricao.Text);
+                }
+            }
+
+
         }
 
         //criando o método limpar
@@ -113,7 +128,7 @@ namespace MultJogos
 
             if (txtDescricao.Text.Equals(""))
             {
-                MessageBox.Show("Digitar");
+                //MessageBox.Show("Digitar");
             }
             else
             {
@@ -136,6 +151,6 @@ namespace MultJogos
             abrir.Show();
             this.Hide();
 
-        }
+        }       
     }
 }

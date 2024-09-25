@@ -61,7 +61,7 @@ namespace MultJogos
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(328, 26);
             this.txtDescricao.TabIndex = 3;
-            // 
+     // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
