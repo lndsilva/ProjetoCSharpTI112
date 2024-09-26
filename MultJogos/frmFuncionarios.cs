@@ -111,7 +111,7 @@ namespace MultJogos
             mskCEP.Enabled = true;
             mskCPF.Enabled = true;
             mskTelefone.Enabled = true;
-            cbbEstado.Enabled = true;        
+            cbbEstado.Enabled = true;
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
             btnLimpar.Enabled = true;
@@ -194,7 +194,7 @@ namespace MultJogos
             comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = txtBairro.Text;
             comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = txtCidade.Text;
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = cbbEstado.Text;
-            comm.Parameters.Add("@codFunc", MySqlDbType.Int32,11).Value = Convert.ToInt32(codFunc);
+            comm.Parameters.Add("@codFunc", MySqlDbType.Int32, 11).Value = Convert.ToInt32(codFunc);
 
             comm.Connection = Conexao.obterConexao();
 
@@ -239,7 +239,7 @@ namespace MultJogos
 
             Conexao.fecharConexao();
 
-            habilitarCamposPesquisar();          
+            habilitarCamposPesquisar();
 
         }
 
@@ -323,7 +323,43 @@ namespace MultJogos
             {
                 MessageBox.Show("Erro ao alterar!!!");
             }
-            
+
+        }
+
+        //criando o método excluir
+        public int excluirFuncionario(int codFunc)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "delete from tbFuncionarios where codFunc = @codfunc;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codFunc", MySqlDbType.Int32, 11).Value = codFunc;
+            comm.Connection = Conexao.obterConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            return res;
+
+            Conexao.fecharConexao();
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja excluir?",
+                   "Sistema", MessageBoxButtons.OKCancel,
+                   MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.OK)
+            {
+                excluirFuncionario(Convert.ToInt32(txtCodigo.Text));
+                limparCampos();
+                desabilitarCampos();
+            }
+            else
+            {
+                txtNome.Focus();
+            }
         }
     }
 }

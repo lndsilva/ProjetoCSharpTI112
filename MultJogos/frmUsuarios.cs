@@ -49,5 +49,10 @@ namespace MultJogos
             abrir.Show();
             this.Hide();
         }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
