@@ -48,13 +48,13 @@ namespace MultJogos
             this.pnlCRUDUsuarios = new System.Windows.Forms.Panel();
             this.lblFuncionario = new System.Windows.Forms.Label();
             this.cbbFuncionario = new System.Windows.Forms.ComboBox();
-            this.lblMostrarCodigo = new System.Windows.Forms.Label();
             this.gpbUsuarios.SuspendLayout();
             this.pnlCRUDUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSenha
             // 
+            this.txtSenha.Enabled = false;
             this.txtSenha.Font = new System.Drawing.Font("Wingdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.txtSenha.Location = new System.Drawing.Point(42, 182);
             this.txtSenha.MaxLength = 20;
@@ -75,6 +75,7 @@ namespace MultJogos
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Enabled = false;
             this.txtUsuario.Location = new System.Drawing.Point(42, 86);
             this.txtUsuario.MaxLength = 30;
             this.txtUsuario.Name = "txtUsuario";
@@ -185,7 +186,6 @@ namespace MultJogos
             // 
             // gpbUsuarios
             // 
-            this.gpbUsuarios.Controls.Add(this.lblMostrarCodigo);
             this.gpbUsuarios.Controls.Add(this.cbbFuncionario);
             this.gpbUsuarios.Controls.Add(this.lblFuncionario);
             this.gpbUsuarios.Controls.Add(this.btnCheck);
@@ -219,6 +219,7 @@ namespace MultJogos
             // 
             // txtSenhaValida
             // 
+            this.txtSenhaValida.Enabled = false;
             this.txtSenhaValida.Font = new System.Drawing.Font("Wingdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.txtSenhaValida.Location = new System.Drawing.Point(42, 272);
             this.txtSenhaValida.MaxLength = 20;
@@ -270,15 +271,6 @@ namespace MultJogos
             this.cbbFuncionario.TabIndex = 21;
             this.cbbFuncionario.SelectedIndexChanged += new System.EventHandler(this.cbbFuncionario_SelectedIndexChanged);
             // 
-            // lblMostrarCodigo
-            // 
-            this.lblMostrarCodigo.AutoSize = true;
-            this.lblMostrarCodigo.Location = new System.Drawing.Point(408, 328);
-            this.lblMostrarCodigo.Name = "lblMostrarCodigo";
-            this.lblMostrarCodigo.Size = new System.Drawing.Size(114, 20);
-            this.lblMostrarCodigo.TabIndex = 22;
-            this.lblMostrarCodigo.Text = "Mostrar código";
-            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,6 +311,5 @@ namespace MultJogos
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.ComboBox cbbFuncionario;
         private System.Windows.Forms.Label lblFuncionario;
-        private System.Windows.Forms.Label lblMostrarCodigo;
     }
 }

@@ -73,7 +73,7 @@ namespace MultJogos
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            cadastrarUsuarios(txtUsuario.Text,txtSenha.Text, Convert.ToInt32(lblMostrarCodigo.Text));
+            cadastrarUsuarios(txtUsuario.Text, txtSenha.Text, Convert.ToInt32(cbbFuncionario.SelectedItem.ToString()));
             MessageBox.Show("Usuário cadastrado com sucesso!!!", "Sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
@@ -113,7 +113,7 @@ namespace MultJogos
 
             DR.Read();
 
-           // lblMostrarCodigo.Text = DR.GetInt32(0).ToString();
+            // lblMostrarCodigo.Text = DR.GetInt32(0).ToString();
 
 
             Conexao.fecharConexao();
@@ -122,6 +122,7 @@ namespace MultJogos
 
         private void cbbFuncionario_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             buscaFuncionariosNome(cbbFuncionario.SelectedItem.ToString());
         }
     }
