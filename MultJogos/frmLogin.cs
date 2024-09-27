@@ -40,7 +40,7 @@ namespace MultJogos
         {
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbUsuarios where nome = @nome and senha = SHA1(@senha);";
+            comm.CommandText = "select * from tbUsuarios where nome = @nome and senha = @senha;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
