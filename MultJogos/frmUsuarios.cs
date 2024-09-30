@@ -86,14 +86,20 @@ namespace MultJogos
             comm.Connection = Conexao.obterConexao();
 
             MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-
-            while (DR.Read())
+            try
             {
-                cbbFuncionario.Items.Add(DR.GetString(1));
-            }
+                DR = comm.ExecuteReader();
 
+                while (DR.Read())
+                {
+                    cbbFuncionario.Items.Add(DR.GetString(1));
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Erro ao conectar o banco de dados");
+            }
             Conexao.fecharConexao();
 
         }//método para buscar funcionários por nome e pegar o código
@@ -120,10 +126,46 @@ namespace MultJogos
 
         }
 
+        public void buscaUsuariosFuncionarios(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select usu.nome from tbUsuarios as usu inner join tbFuncionarios as func on usu.codfunc = func.codfunc where func.nome = @func.nome;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@func.nome", MySqlDbType.VarChar, 50).Value = nome;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+            try
+            {
+                txtUsuario.Text = DR.GetString(0);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Usuário não encontrado");
+                txtUsuario.Clear();
+                txtUsuario.Enabled = true;
+                txtSenha.Enabled = true;
+                txtSenhaValida.Enabled = true;
+                txtUsuario.Focus();
+
+            }
+
+            Conexao.fecharConexao();
+        }
+
         private void cbbFuncionario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             buscaFuncionariosNome(cbbFuncionario.SelectedItem.ToString());
+            buscaUsuariosFuncionarios(cbbFuncionario.SelectedItem.ToString());
+
         }
     }
 }
